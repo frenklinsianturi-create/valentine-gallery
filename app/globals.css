@@ -1,0 +1,140 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 20 14% 4%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 20 14% 4%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 20 14% 4%;
+
+    --muted: 60 4.8% 97.9%;
+    --muted-foreground: 25 5.3% 44.7%;
+
+    --accent: 346 77% 50%;
+    --accent-foreground: 355 100% 97.3%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 20 5.9% 90%;
+    --input: 20 5.9% 90%;
+    --ring: 346 77% 50%;
+
+    --radius: 0.5rem;
+    --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+    --font-display: "Geist Display", system-ui, -apple-system, sans-serif;
+  }
+
+  .dark {
+    --background: 20 14% 4%;
+    --foreground: 60 9.1% 97.8%;
+
+    --card: 20 14% 8%;
+    --card-foreground: 60 9.1% 97.8%;
+
+    --popover: 20 14% 8%;
+    --popover-foreground: 60 9.1% 97.8%;
+
+    --muted: 12 6.5% 15.1%;
+    --muted-foreground: 24 5.4% 63.9%;
+
+    --accent: 346 77% 50%;
+    --accent-foreground: 355 100% 97.3%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 60 9.1% 97.8%;
+
+    --border: 12 6.5% 15.1%;
+    --input: 12 6.5% 15.1%;
+    --ring: 346 77% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Custom animations */
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+.val-shimmer {
+  background: linear-gradient(
+    90deg,
+    #fce7f3 0%,
+    #fbcfe8 25%,
+    #fecdd3 50%,
+    #fbcfe8 75%,
+    #fce7f3 100%
+  );
+  background-size: 1000px 100%;
+  animation: shimmer 20s infinite;
+}
+
+.val-noise {
+  position: relative;
+}
+
+.val-noise::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background-image: 
+    radial-gradient(circle at 20% 50%, rgba(244, 63, 94, 0.03) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(236, 72, 153, 0.03) 0%, transparent 50%);
+  z-index: 0;
+}
+
+.val-heart {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(346 77% 50% / 0.3);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(346 77% 50% / 0.5);
+}
+
+/* Dialog overlay fix */
+[role="dialog"] {
+  z-index: 50;
+}
