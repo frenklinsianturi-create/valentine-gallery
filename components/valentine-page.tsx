@@ -39,17 +39,17 @@ const DEFAULT_PHOTOS: Photo[] = [
   {
     id: 1,
     url: "https://images.unsplash.com/photo-1518895949257-7621c3c786d7?w=1200&h=1200&fit=crop",
-    label: "Momen Spesial",
+    label: "ESSS TROSSS😅",
   },
   {
     id: 2,
     url: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=1200&h=1200&fit=crop",
-    label: "Kebersamaan",
+    label: "Nonton Bareng😊",
   },
   {
     id: 3,
     url: "https://images.unsplash.com/photo-1511379938547-c1f69b13d835?w=1200&h=1200&fit=crop",
-    label: "Cinta",
+    label: "KECE BADAI😝",
   },
   {
     id: 4,
@@ -86,7 +86,7 @@ export default function ValentinePage() {
 
   const [isMusicDialogOpen, setIsMusicDialogOpen] = useState(false)
   const [tempMusicUrl, setTempMusicUrl] = useState("")
-  const [musicUrl, setMusicUrl] = useState<string>("")
+  const [musicUrl] = useState<string>("/music/kasih.mp3")
 
   const [isMuted, setIsMuted] = useState(false)
   const [isPlaying, setIsPlaying] = useState(false)
