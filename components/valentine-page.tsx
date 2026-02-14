@@ -39,36 +39,21 @@ type Photo = {
 const DEFAULT_PHOTOS: Photo[] = [
   {
     id: 1,
-    url: "https://images.unsplash.com/photo-1518895949257-7621c3c786d7?w=1200&h=1200&fit=crop",
+    url: "/images/moment-1.jpg",
     label: "ESSS TROSSS😅",
   },
   {
     id: 2,
-    url: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=1200&h=1200&fit=crop",
+    url: "/images/moment-2.jpg",
     label: "Nonton Bareng😊",
   },
   {
     id: 3,
-    url: "https://images.unsplash.com/photo-1511379938547-c1f69b13d835?w=1200&h=1200&fit=crop",
+    url: "/images/moment-3.jpg",
     label: "KECE BADAI😝",
   },
-  {
-    id: 4,
-    url: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1200&h=1200&fit=crop",
-    label: "Bahagia",
-  },
-  {
-    id: 5,
-    url: "https://images.unsplash.com/photo-1516589178587-6ac977e61eff?w=1200&h=1200&fit=crop",
-    label: "Kenangan",
-  },
-  {
-    id: 6,
-    url: "https://images.unsplash.com/photo-1513161455079-7ef1a827068d?w=1200&h=1200&fit=crop",
-    label: "Masa Depan",
-  },
 ]
-
+   
 function clampText(s: string, max = 90) {
   const v = (s ?? "").trim()
   if (!v) return ""
@@ -488,13 +473,10 @@ export default function ValentinePage() {
                     </div>
 
                     <div className="relative">
-<Image
+<img
   src={p.url}
   alt={p.label}
-  width={1200}
-  height={1200}
-  className="h-72 w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
-  data-testid={`img-photo-${p.id}`}
+  className="h-72 w-full object-cover"
 />
 
                       <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-white/40 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
