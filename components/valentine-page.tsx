@@ -39,7 +39,7 @@ const DEFAULT_PHOTOS: Photo[] = [
   {
     id: 1,
     url: "/images/moment-1.jpg",
-    label: "ESSS TROSSS😅",
+    label: "KECE BADAI😝",
   },
   {
     id: 2,
@@ -49,7 +49,7 @@ const DEFAULT_PHOTOS: Photo[] = [
   {
     id: 3,
     url: "/images/moment-3.jpg",
-    label: "KECE BADAI😝",
+    label: "ESSS TROSSS😅",
   },
 ]
    
