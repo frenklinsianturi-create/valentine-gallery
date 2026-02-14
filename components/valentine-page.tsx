@@ -76,8 +76,8 @@ function clampText(s: string, max = 90) {
 }
 
 export default function ValentinePage() {
-  const [mainTitle, setMainTitle] = useState("Memori Indah Bersama")
-  const [subtitle, setSubtitle] = useState("Setiap momen denganmu adalah keindahan")
+  const [mainTitle, setMainTitle] = useState("Happy Valentine Sayang")
+  const [subtitle, setSubtitle] = useState("Cinta bukan hanya tentang hari ini, tapi tentang setiap hari yang kita lewati dengan sabar, belajar, dan saling memahami. Terima kasih sudah menjadi bagian terpenting dalam hidupku")
 
   const [isEditingTitle, setIsEditingTitle] = useState(false)
   const [isEditingSubtitle, setIsEditingSubtitle] = useState(false)
@@ -86,7 +86,7 @@ export default function ValentinePage() {
 
   const [isMusicDialogOpen, setIsMusicDialogOpen] = useState(false)
   const [tempMusicUrl, setTempMusicUrl] = useState("")
-  const [musicUrl] = useState<string>("/music/kasih.mp3")
+  const [musicUrl, setMusicUrl] = useState<string>("/music/kasih.mp3")
 
   const [isMuted, setIsMuted] = useState(false)
   const [isPlaying, setIsPlaying] = useState(false)
@@ -196,18 +196,20 @@ export default function ValentinePage() {
 
   return (
     <div className="min-h-screen val-shimmer val-noise overflow-hidden">
-      {musicUrl && (
-        <audio
-          ref={audioRef}
-          loop
-          muted={isMuted}
-          onPlay={() => setIsPlaying(true)}
-          onPause={() => setIsPlaying(false)}
-          data-testid="audio-background"
-        >
-          <source src={musicUrl} type="audio/mpeg" />
-        </audio>
-      )}
+     {musicUrl && (
+  <audio
+    ref={audioRef}
+    src={musicUrl}
+    loop
+    autoPlay
+    muted={isMuted}
+    playsInline
+    onPlay={() => setIsPlaying(true)}
+    onPause={() => setIsPlaying(false)}
+    data-testid="audio-background"
+  />
+)}
+
 
       <div
         className="fixed inset-0 pointer-events-none overflow-hidden"
@@ -485,18 +487,14 @@ export default function ValentinePage() {
                     </div>
 
                     <div className="relative">
-                      <img
-                        src={p.url}
-                        alt={p.label}
-                        className="h-72 w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
-                        loading="lazy"
-                        data-testid={`img-photo-${p.id}`}
-                        onError={(e) => {
-                          const img = e.currentTarget
-                          img.src =
-                            "https://via.placeholder.com/1200x1200?text=Foto+Error"
-                        }}
-                      />
+<Image
+  src={p.url}
+  alt={p.label}
+  width={1200}
+  height={1200}
+  className="h-72 w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
+  data-testid={`img-photo-${p.id}`}
+/>
 
                       <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-white/40 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
                     </div>
